@@ -4,7 +4,6 @@ import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import de.vwgis.kafkatitanixexercise.model.Passenger;
-import de.vwgis.kafkatitanixexercise.model.Topiclist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
-import java.util.List;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 @Service
 public class CoreDataProducer {
@@ -34,8 +34,6 @@ public class CoreDataProducer {
         CsvToBean csv = new CsvToBeanBuilder(createCSVReader())
                 .withType(Passenger.class)
                 .build();
-
-
         System.out.println();
     }
 

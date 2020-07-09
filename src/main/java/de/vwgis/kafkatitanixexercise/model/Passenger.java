@@ -28,4 +28,5 @@ public class Passenger {
     private String cabin;
     @CsvBindByName()
     private String embarked;
+
 }
