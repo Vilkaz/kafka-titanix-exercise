@@ -26,11 +26,11 @@ public class KafkaRestController {
         this.coreDataProducer = coreDataProducer;
     }
 
-    @PostMapping("/publish")
-    public void sendMessageToKafka(@RequestParam("message") String message) {
-        log.info("received message from api: " + message );
-        passengerProducer.sendMessage(message);
-    }
+//    @PostMapping("/publish")
+//    public void sendMessageToKafka(@RequestParam("message") String message) {
+//        log.info("received message from api: " + message );
+//        passengerProducer.sendMessage(message);
+//    }
 
     @PostMapping("/init")
     public void sendCoreDataToKafka() {

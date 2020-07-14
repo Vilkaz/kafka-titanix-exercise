@@ -1,15 +1,33 @@
 spring:
   kafka:
+    bootstrap-servers:
+      - localhost:9092
+    properties:
+      schema.registry.url: http://localhost:8081
     consumer:
-      bootstrap-servers: localhost:9092
       group-id: passengerConsumers
-      auto-offset-reset: earliest
+      auto-offset-reset: latest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
     producer:
-      bootstrap-servers: localhost:9092passenger.avsc
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      schema.registry.url: localhost:8081
-    properties:
-      schema.registry.url: localhost:8081
+    template:
+      default-topic:
+
+#spring:
+#  kafka:
+#    bootstrap-servers:
+#      - localhost:9092
+#    properties:
+#      schema.registry.url: localhost:8081
+#    consumer:
+#      group-id: passengerConsumers
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+
