@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.1.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
 }
 
 group = 'de.vwgis'
@@ -9,38 +9,38 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
-	maven {
-		url "http://packages.confluent.io/maven/"
-	}
+    mavenCentral()
+    maven {
+        url "http://packages.confluent.io/maven/"
+    }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.apache.kafka:kafka-streams'
-	implementation 'org.springframework.kafka:spring-kafka'
-	implementation 'org.apache.avro:avro:1.8.2'
-	compileOnly 'org.projectlombok:lombok'
-	compile group: 'com.opencsv', name: 'opencsv', version: '5.2'
-	compile group: 'io.confluent', name: 'kafka-avro-serializer', version: '5.5.0'
-//	compile group: 'com.commercehub.gradle.plugin', name: 'gradle-avro-plugin', version: '0.18.0'
-	compile group: 'org.apache.avro', name: 'avro', version: '1.10.0'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-	testImplementation 'org.springframework.kafka:spring-kafka-test'
-	// https://mvnrepository.com/artifact/org.apache.avro/avro-maven-plugin
-	compile group: 'org.apache.avro', name: 'avro-maven-plugin', version: '1.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.kafka:kafka-streams'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.apache.avro:avro:1.8.2'
+    compileOnly 'org.projectlombok:lombok'
+    compile group: 'com.opencsv', name: 'opencsv', version: '5.2'
+    compile group: 'io.confluent', name: 'kafka-avro-serializer', version: '5.5.0'
+    compile group: 'org.apache.avro', name: 'avro', version: '1.10.0'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    compile group: 'org.apache.avro', name: 'avro-maven-plugin', version: '1.10.0'
 
 }
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

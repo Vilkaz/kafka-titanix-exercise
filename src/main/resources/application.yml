@@ -1,3 +1,5 @@
+topic:
+  name: passenger
 spring:
   kafka:
     bootstrap-servers:
