@@ -14,17 +14,17 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Passenger extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 8803917622247325666L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Passenger\",\"namespace\":\"de.vwgis.kafkatitanixexercise.model\",\"fields\":[{\"name\":\"passengerId\",\"type\":\"int\"},{\"name\":\"survived\",\"type\":\"boolean\"},{\"name\":\"pClass\",\"type\":\"int\",\"default\":3},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"sex\",\"type\":\"string\"},{\"name\":\"age\",\"type\":\"double\",\"default\":0.0},{\"name\":\"sibSp\",\"type\":\"int\"},{\"name\":\"parch\",\"type\":\"int\"},{\"name\":\"ticket\",\"type\":\"string\"},{\"name\":\"fare\",\"type\":\"double\",\"default\":0.0},{\"name\":\"cabin\",\"type\":\"string\",\"default\":\"\"},{\"name\":\"embarked\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 856692310918248408L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Passenger\",\"namespace\":\"de.vwgis.kafkatitanixexercise.model\",\"fields\":[{\"name\":\"passengerId\",\"type\":\"int\"},{\"name\":\"survived\",\"type\":\"boolean\"},{\"name\":\"pClass\",\"type\":\"int\",\"default\":3},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"sex\",\"type\":{\"type\":\"enum\",\"name\":\"Gender\",\"symbols\":[\"MALE\",\"FEMALE\",\"DIVERSE\"]}},{\"name\":\"age\",\"type\":\"double\",\"default\":0.0},{\"name\":\"sibSp\",\"type\":\"int\"},{\"name\":\"parch\",\"type\":\"int\"},{\"name\":\"ticket\",\"type\":\"string\"},{\"name\":\"fare\",\"type\":\"double\",\"default\":0.0},{\"name\":\"cabin\",\"type\":\"string\",\"default\":\"\"},{\"name\":\"embarked\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<Passenger> ENCODER =
-          new BinaryMessageEncoder<Passenger>(MODEL$, SCHEMA$);
+      new BinaryMessageEncoder<Passenger>(MODEL$, SCHEMA$);
 
   private static final BinaryMessageDecoder<Passenger> DECODER =
-          new BinaryMessageDecoder<Passenger>(MODEL$, SCHEMA$);
+      new BinaryMessageDecoder<Passenger>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
@@ -67,22 +67,22 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
   public static Passenger fromByteBuffer(
-          java.nio.ByteBuffer b) throws java.io.IOException {
+      java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
 
-  private int passengerId;
-  private boolean survived;
-  private int pClass;
-  private java.lang.CharSequence name;
-  private java.lang.CharSequence sex;
-  private double age;
-  private int sibSp;
-  private int parch;
-  private java.lang.CharSequence ticket;
-  private double fare;
-  private java.lang.CharSequence cabin;
-  private java.lang.CharSequence embarked;
+   private int passengerId;
+   private boolean survived;
+   private int pClass;
+   private CharSequence name;
+   private Gender sex;
+   private double age;
+   private int sibSp;
+   private int parch;
+   private CharSequence ticket;
+   private double fare;
+   private CharSequence cabin;
+   private CharSequence embarked;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -106,7 +106,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * @param cabin The new value for cabin
    * @param embarked The new value for embarked
    */
-  public Passenger(java.lang.Integer passengerId, java.lang.Boolean survived, java.lang.Integer pClass, java.lang.CharSequence name, java.lang.CharSequence sex, java.lang.Double age, java.lang.Integer sibSp, java.lang.Integer parch, java.lang.CharSequence ticket, java.lang.Double fare, java.lang.CharSequence cabin, java.lang.CharSequence embarked) {
+  public Passenger(Integer passengerId, Boolean survived, Integer pClass, CharSequence name, Gender sex, Double age, Integer sibSp, Integer parch, CharSequence ticket, Double fare, CharSequence cabin, CharSequence embarked) {
     this.passengerId = passengerId;
     this.survived = survived;
     this.pClass = pClass;
@@ -121,44 +121,44 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     this.embarked = embarked;
   }
 
-  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
+  public SpecificData getSpecificData() { return MODEL$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public java.lang.Object get(int field$) {
+  public Object get(int field$) {
     switch (field$) {
-      case 0: return passengerId;
-      case 1: return survived;
-      case 2: return pClass;
-      case 3: return name;
-      case 4: return sex;
-      case 5: return age;
-      case 6: return sibSp;
-      case 7: return parch;
-      case 8: return ticket;
-      case 9: return fare;
-      case 10: return cabin;
-      case 11: return embarked;
-      default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    case 0: return passengerId;
+    case 1: return survived;
+    case 2: return pClass;
+    case 3: return name;
+    case 4: return sex;
+    case 5: return age;
+    case 6: return sibSp;
+    case 7: return parch;
+    case 8: return ticket;
+    case 9: return fare;
+    case 10: return cabin;
+    case 11: return embarked;
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, java.lang.Object value$) {
+  public void put(int field$, Object value$) {
     switch (field$) {
-      case 0: passengerId = (java.lang.Integer)value$; break;
-      case 1: survived = (java.lang.Boolean)value$; break;
-      case 2: pClass = (java.lang.Integer)value$; break;
-      case 3: name = (java.lang.CharSequence)value$; break;
-      case 4: sex = (java.lang.CharSequence)value$; break;
-      case 5: age = (java.lang.Double)value$; break;
-      case 6: sibSp = (java.lang.Integer)value$; break;
-      case 7: parch = (java.lang.Integer)value$; break;
-      case 8: ticket = (java.lang.CharSequence)value$; break;
-      case 9: fare = (java.lang.Double)value$; break;
-      case 10: cabin = (java.lang.CharSequence)value$; break;
-      case 11: embarked = (java.lang.CharSequence)value$; break;
-      default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    case 0: passengerId = (Integer)value$; break;
+    case 1: survived = (Boolean)value$; break;
+    case 2: pClass = (Integer)value$; break;
+    case 3: name = (CharSequence)value$; break;
+    case 4: sex = (Gender)value$; break;
+    case 5: age = (Double)value$; break;
+    case 6: sibSp = (Integer)value$; break;
+    case 7: parch = (Integer)value$; break;
+    case 8: ticket = (CharSequence)value$; break;
+    case 9: fare = (Double)value$; break;
+    case 10: cabin = (CharSequence)value$; break;
+    case 11: embarked = (CharSequence)value$; break;
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -217,7 +217,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'name' field.
    * @return The value of the 'name' field.
    */
-  public java.lang.CharSequence getName() {
+  public CharSequence getName() {
     return name;
   }
 
@@ -226,7 +226,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'name' field.
    * @param value the value to set.
    */
-  public void setName(java.lang.CharSequence value) {
+  public void setName(CharSequence value) {
     this.name = value;
   }
 
@@ -234,7 +234,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'sex' field.
    * @return The value of the 'sex' field.
    */
-  public java.lang.CharSequence getSex() {
+  public Gender getSex() {
     return sex;
   }
 
@@ -243,7 +243,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'sex' field.
    * @param value the value to set.
    */
-  public void setSex(java.lang.CharSequence value) {
+  public void setSex(Gender value) {
     this.sex = value;
   }
 
@@ -302,7 +302,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'ticket' field.
    * @return The value of the 'ticket' field.
    */
-  public java.lang.CharSequence getTicket() {
+  public CharSequence getTicket() {
     return ticket;
   }
 
@@ -311,7 +311,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'ticket' field.
    * @param value the value to set.
    */
-  public void setTicket(java.lang.CharSequence value) {
+  public void setTicket(CharSequence value) {
     this.ticket = value;
   }
 
@@ -336,7 +336,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'cabin' field.
    * @return The value of the 'cabin' field.
    */
-  public java.lang.CharSequence getCabin() {
+  public CharSequence getCabin() {
     return cabin;
   }
 
@@ -345,7 +345,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'cabin' field.
    * @param value the value to set.
    */
-  public void setCabin(java.lang.CharSequence value) {
+  public void setCabin(CharSequence value) {
     this.cabin = value;
   }
 
@@ -353,7 +353,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'embarked' field.
    * @return The value of the 'embarked' field.
    */
-  public java.lang.CharSequence getEmbarked() {
+  public CharSequence getEmbarked() {
     return embarked;
   }
 
@@ -362,7 +362,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'embarked' field.
    * @param value the value to set.
    */
-  public void setEmbarked(java.lang.CharSequence value) {
+  public void setEmbarked(CharSequence value) {
     this.embarked = value;
   }
 
@@ -370,8 +370,8 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Creates a new Passenger RecordBuilder.
    * @return A new Passenger RecordBuilder
    */
-  public static de.vwgis.kafkatitanixexercise.model.Passenger.Builder newBuilder() {
-    return new de.vwgis.kafkatitanixexercise.model.Passenger.Builder();
+  public static Builder newBuilder() {
+    return new Builder();
   }
 
   /**
@@ -379,11 +379,11 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * @param other The existing builder to copy.
    * @return A new Passenger RecordBuilder
    */
-  public static de.vwgis.kafkatitanixexercise.model.Passenger.Builder newBuilder(de.vwgis.kafkatitanixexercise.model.Passenger.Builder other) {
+  public static Builder newBuilder(Builder other) {
     if (other == null) {
-      return new de.vwgis.kafkatitanixexercise.model.Passenger.Builder();
+      return new Builder();
     } else {
-      return new de.vwgis.kafkatitanixexercise.model.Passenger.Builder(other);
+      return new Builder(other);
     }
   }
 
@@ -392,11 +392,11 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * @param other The existing instance to copy.
    * @return A new Passenger RecordBuilder
    */
-  public static de.vwgis.kafkatitanixexercise.model.Passenger.Builder newBuilder(de.vwgis.kafkatitanixexercise.model.Passenger other) {
+  public static Builder newBuilder(Passenger other) {
     if (other == null) {
-      return new de.vwgis.kafkatitanixexercise.model.Passenger.Builder();
+      return new Builder();
     } else {
-      return new de.vwgis.kafkatitanixexercise.model.Passenger.Builder(other);
+      return new Builder(other);
     }
   }
 
@@ -405,20 +405,20 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    */
   @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Passenger>
-          implements org.apache.avro.data.RecordBuilder<Passenger> {
+    implements org.apache.avro.data.RecordBuilder<Passenger> {
 
     private int passengerId;
     private boolean survived;
     private int pClass;
-    private java.lang.CharSequence name;
-    private java.lang.CharSequence sex;
+    private CharSequence name;
+    private Gender sex;
     private double age;
     private int sibSp;
     private int parch;
-    private java.lang.CharSequence ticket;
+    private CharSequence ticket;
     private double fare;
-    private java.lang.CharSequence cabin;
-    private java.lang.CharSequence embarked;
+    private CharSequence cabin;
+    private CharSequence embarked;
 
     /** Creates a new Builder */
     private Builder() {
@@ -429,7 +429,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(de.vwgis.kafkatitanixexercise.model.Passenger.Builder other) {
+    private Builder(Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.passengerId)) {
         this.passengerId = data().deepCopy(fields()[0].schema(), other.passengerId);
@@ -485,7 +485,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
      * Creates a Builder by copying an existing Passenger instance
      * @param other The existing instance to copy.
      */
-    private Builder(de.vwgis.kafkatitanixexercise.model.Passenger other) {
+    private Builder(Passenger other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.passengerId)) {
         this.passengerId = data().deepCopy(fields()[0].schema(), other.passengerId);
@@ -538,20 +538,20 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Gets the value of the 'passengerId' field.
-     * @return The value.
-     */
+      * Gets the value of the 'passengerId' field.
+      * @return The value.
+      */
     public int getPassengerId() {
       return passengerId;
     }
 
 
     /**
-     * Sets the value of the 'passengerId' field.
-     * @param value The value of 'passengerId'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setPassengerId(int value) {
+      * Sets the value of the 'passengerId' field.
+      * @param value The value of 'passengerId'.
+      * @return This builder.
+      */
+    public Builder setPassengerId(int value) {
       validate(fields()[0], value);
       this.passengerId = value;
       fieldSetFlags()[0] = true;
@@ -559,38 +559,38 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'passengerId' field has been set.
-     * @return True if the 'passengerId' field has been set, false otherwise.
-     */
+      * Checks whether the 'passengerId' field has been set.
+      * @return True if the 'passengerId' field has been set, false otherwise.
+      */
     public boolean hasPassengerId() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-     * Clears the value of the 'passengerId' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearPassengerId() {
+      * Clears the value of the 'passengerId' field.
+      * @return This builder.
+      */
+    public Builder clearPassengerId() {
       fieldSetFlags()[0] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'survived' field.
-     * @return The value.
-     */
+      * Gets the value of the 'survived' field.
+      * @return The value.
+      */
     public boolean getSurvived() {
       return survived;
     }
 
 
     /**
-     * Sets the value of the 'survived' field.
-     * @param value The value of 'survived'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setSurvived(boolean value) {
+      * Sets the value of the 'survived' field.
+      * @param value The value of 'survived'.
+      * @return This builder.
+      */
+    public Builder setSurvived(boolean value) {
       validate(fields()[1], value);
       this.survived = value;
       fieldSetFlags()[1] = true;
@@ -598,38 +598,38 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'survived' field has been set.
-     * @return True if the 'survived' field has been set, false otherwise.
-     */
+      * Checks whether the 'survived' field has been set.
+      * @return True if the 'survived' field has been set, false otherwise.
+      */
     public boolean hasSurvived() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-     * Clears the value of the 'survived' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearSurvived() {
+      * Clears the value of the 'survived' field.
+      * @return This builder.
+      */
+    public Builder clearSurvived() {
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'pClass' field.
-     * @return The value.
-     */
+      * Gets the value of the 'pClass' field.
+      * @return The value.
+      */
     public int getPClass() {
       return pClass;
     }
 
 
     /**
-     * Sets the value of the 'pClass' field.
-     * @param value The value of 'pClass'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setPClass(int value) {
+      * Sets the value of the 'pClass' field.
+      * @param value The value of 'pClass'.
+      * @return This builder.
+      */
+    public Builder setPClass(int value) {
       validate(fields()[2], value);
       this.pClass = value;
       fieldSetFlags()[2] = true;
@@ -637,38 +637,38 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'pClass' field has been set.
-     * @return True if the 'pClass' field has been set, false otherwise.
-     */
+      * Checks whether the 'pClass' field has been set.
+      * @return True if the 'pClass' field has been set, false otherwise.
+      */
     public boolean hasPClass() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-     * Clears the value of the 'pClass' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearPClass() {
+      * Clears the value of the 'pClass' field.
+      * @return This builder.
+      */
+    public Builder clearPClass() {
       fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'name' field.
-     * @return The value.
-     */
-    public java.lang.CharSequence getName() {
+      * Gets the value of the 'name' field.
+      * @return The value.
+      */
+    public CharSequence getName() {
       return name;
     }
 
 
     /**
-     * Sets the value of the 'name' field.
-     * @param value The value of 'name'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setName(java.lang.CharSequence value) {
+      * Sets the value of the 'name' field.
+      * @param value The value of 'name'.
+      * @return This builder.
+      */
+    public Builder setName(CharSequence value) {
       validate(fields()[3], value);
       this.name = value;
       fieldSetFlags()[3] = true;
@@ -676,39 +676,39 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'name' field has been set.
-     * @return True if the 'name' field has been set, false otherwise.
-     */
+      * Checks whether the 'name' field has been set.
+      * @return True if the 'name' field has been set, false otherwise.
+      */
     public boolean hasName() {
       return fieldSetFlags()[3];
     }
 
 
     /**
-     * Clears the value of the 'name' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearName() {
+      * Clears the value of the 'name' field.
+      * @return This builder.
+      */
+    public Builder clearName() {
       name = null;
       fieldSetFlags()[3] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'sex' field.
-     * @return The value.
-     */
-    public java.lang.CharSequence getSex() {
+      * Gets the value of the 'sex' field.
+      * @return The value.
+      */
+    public Gender getSex() {
       return sex;
     }
 
 
     /**
-     * Sets the value of the 'sex' field.
-     * @param value The value of 'sex'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setSex(java.lang.CharSequence value) {
+      * Sets the value of the 'sex' field.
+      * @param value The value of 'sex'.
+      * @return This builder.
+      */
+    public Builder setSex(Gender value) {
       validate(fields()[4], value);
       this.sex = value;
       fieldSetFlags()[4] = true;
@@ -716,39 +716,39 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'sex' field has been set.
-     * @return True if the 'sex' field has been set, false otherwise.
-     */
+      * Checks whether the 'sex' field has been set.
+      * @return True if the 'sex' field has been set, false otherwise.
+      */
     public boolean hasSex() {
       return fieldSetFlags()[4];
     }
 
 
     /**
-     * Clears the value of the 'sex' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearSex() {
+      * Clears the value of the 'sex' field.
+      * @return This builder.
+      */
+    public Builder clearSex() {
       sex = null;
       fieldSetFlags()[4] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'age' field.
-     * @return The value.
-     */
+      * Gets the value of the 'age' field.
+      * @return The value.
+      */
     public double getAge() {
       return age;
     }
 
 
     /**
-     * Sets the value of the 'age' field.
-     * @param value The value of 'age'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setAge(double value) {
+      * Sets the value of the 'age' field.
+      * @param value The value of 'age'.
+      * @return This builder.
+      */
+    public Builder setAge(double value) {
       validate(fields()[5], value);
       this.age = value;
       fieldSetFlags()[5] = true;
@@ -756,38 +756,38 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'age' field has been set.
-     * @return True if the 'age' field has been set, false otherwise.
-     */
+      * Checks whether the 'age' field has been set.
+      * @return True if the 'age' field has been set, false otherwise.
+      */
     public boolean hasAge() {
       return fieldSetFlags()[5];
     }
 
 
     /**
-     * Clears the value of the 'age' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearAge() {
+      * Clears the value of the 'age' field.
+      * @return This builder.
+      */
+    public Builder clearAge() {
       fieldSetFlags()[5] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'sibSp' field.
-     * @return The value.
-     */
+      * Gets the value of the 'sibSp' field.
+      * @return The value.
+      */
     public int getSibSp() {
       return sibSp;
     }
 
 
     /**
-     * Sets the value of the 'sibSp' field.
-     * @param value The value of 'sibSp'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setSibSp(int value) {
+      * Sets the value of the 'sibSp' field.
+      * @param value The value of 'sibSp'.
+      * @return This builder.
+      */
+    public Builder setSibSp(int value) {
       validate(fields()[6], value);
       this.sibSp = value;
       fieldSetFlags()[6] = true;
@@ -795,38 +795,38 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'sibSp' field has been set.
-     * @return True if the 'sibSp' field has been set, false otherwise.
-     */
+      * Checks whether the 'sibSp' field has been set.
+      * @return True if the 'sibSp' field has been set, false otherwise.
+      */
     public boolean hasSibSp() {
       return fieldSetFlags()[6];
     }
 
 
     /**
-     * Clears the value of the 'sibSp' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearSibSp() {
+      * Clears the value of the 'sibSp' field.
+      * @return This builder.
+      */
+    public Builder clearSibSp() {
       fieldSetFlags()[6] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'parch' field.
-     * @return The value.
-     */
+      * Gets the value of the 'parch' field.
+      * @return The value.
+      */
     public int getParch() {
       return parch;
     }
 
 
     /**
-     * Sets the value of the 'parch' field.
-     * @param value The value of 'parch'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setParch(int value) {
+      * Sets the value of the 'parch' field.
+      * @param value The value of 'parch'.
+      * @return This builder.
+      */
+    public Builder setParch(int value) {
       validate(fields()[7], value);
       this.parch = value;
       fieldSetFlags()[7] = true;
@@ -834,38 +834,38 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'parch' field has been set.
-     * @return True if the 'parch' field has been set, false otherwise.
-     */
+      * Checks whether the 'parch' field has been set.
+      * @return True if the 'parch' field has been set, false otherwise.
+      */
     public boolean hasParch() {
       return fieldSetFlags()[7];
     }
 
 
     /**
-     * Clears the value of the 'parch' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearParch() {
+      * Clears the value of the 'parch' field.
+      * @return This builder.
+      */
+    public Builder clearParch() {
       fieldSetFlags()[7] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'ticket' field.
-     * @return The value.
-     */
-    public java.lang.CharSequence getTicket() {
+      * Gets the value of the 'ticket' field.
+      * @return The value.
+      */
+    public CharSequence getTicket() {
       return ticket;
     }
 
 
     /**
-     * Sets the value of the 'ticket' field.
-     * @param value The value of 'ticket'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setTicket(java.lang.CharSequence value) {
+      * Sets the value of the 'ticket' field.
+      * @param value The value of 'ticket'.
+      * @return This builder.
+      */
+    public Builder setTicket(CharSequence value) {
       validate(fields()[8], value);
       this.ticket = value;
       fieldSetFlags()[8] = true;
@@ -873,39 +873,39 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'ticket' field has been set.
-     * @return True if the 'ticket' field has been set, false otherwise.
-     */
+      * Checks whether the 'ticket' field has been set.
+      * @return True if the 'ticket' field has been set, false otherwise.
+      */
     public boolean hasTicket() {
       return fieldSetFlags()[8];
     }
 
 
     /**
-     * Clears the value of the 'ticket' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearTicket() {
+      * Clears the value of the 'ticket' field.
+      * @return This builder.
+      */
+    public Builder clearTicket() {
       ticket = null;
       fieldSetFlags()[8] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'fare' field.
-     * @return The value.
-     */
+      * Gets the value of the 'fare' field.
+      * @return The value.
+      */
     public double getFare() {
       return fare;
     }
 
 
     /**
-     * Sets the value of the 'fare' field.
-     * @param value The value of 'fare'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setFare(double value) {
+      * Sets the value of the 'fare' field.
+      * @param value The value of 'fare'.
+      * @return This builder.
+      */
+    public Builder setFare(double value) {
       validate(fields()[9], value);
       this.fare = value;
       fieldSetFlags()[9] = true;
@@ -913,38 +913,38 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'fare' field has been set.
-     * @return True if the 'fare' field has been set, false otherwise.
-     */
+      * Checks whether the 'fare' field has been set.
+      * @return True if the 'fare' field has been set, false otherwise.
+      */
     public boolean hasFare() {
       return fieldSetFlags()[9];
     }
 
 
     /**
-     * Clears the value of the 'fare' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearFare() {
+      * Clears the value of the 'fare' field.
+      * @return This builder.
+      */
+    public Builder clearFare() {
       fieldSetFlags()[9] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'cabin' field.
-     * @return The value.
-     */
-    public java.lang.CharSequence getCabin() {
+      * Gets the value of the 'cabin' field.
+      * @return The value.
+      */
+    public CharSequence getCabin() {
       return cabin;
     }
 
 
     /**
-     * Sets the value of the 'cabin' field.
-     * @param value The value of 'cabin'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setCabin(java.lang.CharSequence value) {
+      * Sets the value of the 'cabin' field.
+      * @param value The value of 'cabin'.
+      * @return This builder.
+      */
+    public Builder setCabin(CharSequence value) {
       validate(fields()[10], value);
       this.cabin = value;
       fieldSetFlags()[10] = true;
@@ -952,39 +952,39 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'cabin' field has been set.
-     * @return True if the 'cabin' field has been set, false otherwise.
-     */
+      * Checks whether the 'cabin' field has been set.
+      * @return True if the 'cabin' field has been set, false otherwise.
+      */
     public boolean hasCabin() {
       return fieldSetFlags()[10];
     }
 
 
     /**
-     * Clears the value of the 'cabin' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearCabin() {
+      * Clears the value of the 'cabin' field.
+      * @return This builder.
+      */
+    public Builder clearCabin() {
       cabin = null;
       fieldSetFlags()[10] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'embarked' field.
-     * @return The value.
-     */
-    public java.lang.CharSequence getEmbarked() {
+      * Gets the value of the 'embarked' field.
+      * @return The value.
+      */
+    public CharSequence getEmbarked() {
       return embarked;
     }
 
 
     /**
-     * Sets the value of the 'embarked' field.
-     * @param value The value of 'embarked'.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setEmbarked(java.lang.CharSequence value) {
+      * Sets the value of the 'embarked' field.
+      * @param value The value of 'embarked'.
+      * @return This builder.
+      */
+    public Builder setEmbarked(CharSequence value) {
       validate(fields()[11], value);
       this.embarked = value;
       fieldSetFlags()[11] = true;
@@ -992,19 +992,19 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
-     * Checks whether the 'embarked' field has been set.
-     * @return True if the 'embarked' field has been set, false otherwise.
-     */
+      * Checks whether the 'embarked' field has been set.
+      * @return True if the 'embarked' field has been set, false otherwise.
+      */
     public boolean hasEmbarked() {
       return fieldSetFlags()[11];
     }
 
 
     /**
-     * Clears the value of the 'embarked' field.
-     * @return This builder.
-     */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder clearEmbarked() {
+      * Clears the value of the 'embarked' field.
+      * @return This builder.
+      */
+    public Builder clearEmbarked() {
       embarked = null;
       fieldSetFlags()[11] = false;
       return this;
@@ -1015,22 +1015,22 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     public Passenger build() {
       try {
         Passenger record = new Passenger();
-        record.passengerId = fieldSetFlags()[0] ? this.passengerId : (java.lang.Integer) defaultValue(fields()[0]);
-        record.survived = fieldSetFlags()[1] ? this.survived : (java.lang.Boolean) defaultValue(fields()[1]);
-        record.pClass = fieldSetFlags()[2] ? this.pClass : (java.lang.Integer) defaultValue(fields()[2]);
-        record.name = fieldSetFlags()[3] ? this.name : (java.lang.CharSequence) defaultValue(fields()[3]);
-        record.sex = fieldSetFlags()[4] ? this.sex : (java.lang.CharSequence) defaultValue(fields()[4]);
-        record.age = fieldSetFlags()[5] ? this.age : (java.lang.Double) defaultValue(fields()[5]);
-        record.sibSp = fieldSetFlags()[6] ? this.sibSp : (java.lang.Integer) defaultValue(fields()[6]);
-        record.parch = fieldSetFlags()[7] ? this.parch : (java.lang.Integer) defaultValue(fields()[7]);
-        record.ticket = fieldSetFlags()[8] ? this.ticket : (java.lang.CharSequence) defaultValue(fields()[8]);
-        record.fare = fieldSetFlags()[9] ? this.fare : (java.lang.Double) defaultValue(fields()[9]);
-        record.cabin = fieldSetFlags()[10] ? this.cabin : (java.lang.CharSequence) defaultValue(fields()[10]);
-        record.embarked = fieldSetFlags()[11] ? this.embarked : (java.lang.CharSequence) defaultValue(fields()[11]);
+        record.passengerId = fieldSetFlags()[0] ? this.passengerId : (Integer) defaultValue(fields()[0]);
+        record.survived = fieldSetFlags()[1] ? this.survived : (Boolean) defaultValue(fields()[1]);
+        record.pClass = fieldSetFlags()[2] ? this.pClass : (Integer) defaultValue(fields()[2]);
+        record.name = fieldSetFlags()[3] ? this.name : (CharSequence) defaultValue(fields()[3]);
+        record.sex = fieldSetFlags()[4] ? this.sex : (Gender) defaultValue(fields()[4]);
+        record.age = fieldSetFlags()[5] ? this.age : (Double) defaultValue(fields()[5]);
+        record.sibSp = fieldSetFlags()[6] ? this.sibSp : (Integer) defaultValue(fields()[6]);
+        record.parch = fieldSetFlags()[7] ? this.parch : (Integer) defaultValue(fields()[7]);
+        record.ticket = fieldSetFlags()[8] ? this.ticket : (CharSequence) defaultValue(fields()[8]);
+        record.fare = fieldSetFlags()[9] ? this.fare : (Double) defaultValue(fields()[9]);
+        record.cabin = fieldSetFlags()[10] ? this.cabin : (CharSequence) defaultValue(fields()[10]);
+        record.embarked = fieldSetFlags()[11] ? this.embarked : (CharSequence) defaultValue(fields()[11]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
-      } catch (java.lang.Exception e) {
+      } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }
@@ -1038,26 +1038,26 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
 
   @SuppressWarnings("unchecked")
   private static final org.apache.avro.io.DatumWriter<Passenger>
-          WRITER$ = (org.apache.avro.io.DatumWriter<Passenger>)MODEL$.createDatumWriter(SCHEMA$);
+    WRITER$ = (org.apache.avro.io.DatumWriter<Passenger>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
-          throws java.io.IOException {
+    throws java.io.IOException {
     WRITER$.write(this, SpecificData.getEncoder(out));
   }
 
   @SuppressWarnings("unchecked")
   private static final org.apache.avro.io.DatumReader<Passenger>
-          READER$ = (org.apache.avro.io.DatumReader<Passenger>)MODEL$.createDatumReader(SCHEMA$);
+    READER$ = (org.apache.avro.io.DatumReader<Passenger>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
-          throws java.io.IOException {
+    throws java.io.IOException {
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
   @Override protected boolean hasCustomCoders() { return true; }
 
   @Override public void customEncode(org.apache.avro.io.Encoder out)
-          throws java.io.IOException
+    throws java.io.IOException
   {
     out.writeInt(this.passengerId);
 
@@ -1067,7 +1067,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
 
     out.writeString(this.name);
 
-    out.writeString(this.sex);
+    out.writeEnum(this.sex.ordinal());
 
     out.writeDouble(this.age);
 
@@ -1086,7 +1086,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
-          throws java.io.IOException
+    throws java.io.IOException
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
@@ -1098,7 +1098,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
 
       this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
 
-      this.sex = in.readString(this.sex instanceof Utf8 ? (Utf8)this.sex : null);
+      this.sex = Gender.values()[in.readEnum()];
 
       this.age = in.readDouble();
 
@@ -1117,58 +1117,68 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     } else {
       for (int i = 0; i < 12; i++) {
         switch (fieldOrder[i].pos()) {
-          case 0:
-            this.passengerId = in.readInt();
-            break;
+        case 0:
+          this.passengerId = in.readInt();
+          break;
 
-          case 1:
-            this.survived = in.readBoolean();
-            break;
+        case 1:
+          this.survived = in.readBoolean();
+          break;
 
-          case 2:
-            this.pClass = in.readInt();
-            break;
+        case 2:
+          this.pClass = in.readInt();
+          break;
 
-          case 3:
-            this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
-            break;
+        case 3:
+          this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
+          break;
 
-          case 4:
-            this.sex = in.readString(this.sex instanceof Utf8 ? (Utf8)this.sex : null);
-            break;
+        case 4:
+          this.sex = Gender.values()[in.readEnum()];
+          break;
 
-          case 5:
-            this.age = in.readDouble();
-            break;
+        case 5:
+          this.age = in.readDouble();
+          break;
 
-          case 6:
-            this.sibSp = in.readInt();
-            break;
+        case 6:
+          this.sibSp = in.readInt();
+          break;
 
-          case 7:
-            this.parch = in.readInt();
-            break;
+        case 7:
+          this.parch = in.readInt();
+          break;
 
-          case 8:
-            this.ticket = in.readString(this.ticket instanceof Utf8 ? (Utf8)this.ticket : null);
-            break;
+        case 8:
+          this.ticket = in.readString(this.ticket instanceof Utf8 ? (Utf8)this.ticket : null);
+          break;
 
-          case 9:
-            this.fare = in.readDouble();
-            break;
+        case 9:
+          this.fare = in.readDouble();
+          break;
 
-          case 10:
-            this.cabin = in.readString(this.cabin instanceof Utf8 ? (Utf8)this.cabin : null);
-            break;
+        case 10:
+          this.cabin = in.readString(this.cabin instanceof Utf8 ? (Utf8)this.cabin : null);
+          break;
 
-          case 11:
-            this.embarked = in.readString(this.embarked instanceof Utf8 ? (Utf8)this.embarked : null);
-            break;
+        case 11:
+          this.embarked = in.readString(this.embarked instanceof Utf8 ? (Utf8)this.embarked : null);
+          break;
 
-          default:
-            throw new java.io.IOException("Corrupt ResolvingDecoder.");
+        default:
+          throw new java.io.IOException("Corrupt ResolvingDecoder.");
         }
       }
     }
   }
 }
+
+
+
+
+
+
+
+
+
+

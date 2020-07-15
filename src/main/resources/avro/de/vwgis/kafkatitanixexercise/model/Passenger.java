@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Passenger extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 8803917622247325666L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Passenger\",\"namespace\":\"de.vwgis.kafkatitanixexercise.model\",\"fields\":[{\"name\":\"passengerId\",\"type\":\"int\"},{\"name\":\"survived\",\"type\":\"boolean\"},{\"name\":\"pClass\",\"type\":\"int\",\"default\":3},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"sex\",\"type\":\"string\"},{\"name\":\"age\",\"type\":\"double\",\"default\":0.0},{\"name\":\"sibSp\",\"type\":\"int\"},{\"name\":\"parch\",\"type\":\"int\"},{\"name\":\"ticket\",\"type\":\"string\"},{\"name\":\"fare\",\"type\":\"double\",\"default\":0.0},{\"name\":\"cabin\",\"type\":\"string\",\"default\":\"\"},{\"name\":\"embarked\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = -6183926554202035078L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Passenger\",\"namespace\":\"de.vwgis.kafkatitanixexercise.model\",\"fields\":[{\"name\":\"passengerId\",\"type\":\"int\"},{\"name\":\"survived\",\"type\":\"boolean\"},{\"name\":\"pClass\",\"type\":\"int\",\"default\":3},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"sex\",\"type\":{\"type\":\"enum\",\"name\":\"Gender\",\"symbols\":[\"male\",\"female\",\"diverse\"]}},{\"name\":\"age\",\"type\":\"double\",\"default\":0.0},{\"name\":\"sibSp\",\"type\":\"int\"},{\"name\":\"parch\",\"type\":\"int\"},{\"name\":\"ticket\",\"type\":\"string\"},{\"name\":\"fare\",\"type\":\"double\",\"default\":0.0},{\"name\":\"cabin\",\"type\":\"string\",\"default\":\"\"},{\"name\":\"embarked\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -75,7 +75,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    private boolean survived;
    private int pClass;
    private java.lang.CharSequence name;
-   private java.lang.CharSequence sex;
+   private de.vwgis.kafkatitanixexercise.model.Gender sex;
    private double age;
    private int sibSp;
    private int parch;
@@ -106,7 +106,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * @param cabin The new value for cabin
    * @param embarked The new value for embarked
    */
-  public Passenger(java.lang.Integer passengerId, java.lang.Boolean survived, java.lang.Integer pClass, java.lang.CharSequence name, java.lang.CharSequence sex, java.lang.Double age, java.lang.Integer sibSp, java.lang.Integer parch, java.lang.CharSequence ticket, java.lang.Double fare, java.lang.CharSequence cabin, java.lang.CharSequence embarked) {
+  public Passenger(java.lang.Integer passengerId, java.lang.Boolean survived, java.lang.Integer pClass, java.lang.CharSequence name, de.vwgis.kafkatitanixexercise.model.Gender sex, java.lang.Double age, java.lang.Integer sibSp, java.lang.Integer parch, java.lang.CharSequence ticket, java.lang.Double fare, java.lang.CharSequence cabin, java.lang.CharSequence embarked) {
     this.passengerId = passengerId;
     this.survived = survived;
     this.pClass = pClass;
@@ -150,7 +150,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     case 1: survived = (java.lang.Boolean)value$; break;
     case 2: pClass = (java.lang.Integer)value$; break;
     case 3: name = (java.lang.CharSequence)value$; break;
-    case 4: sex = (java.lang.CharSequence)value$; break;
+    case 4: sex = (de.vwgis.kafkatitanixexercise.model.Gender)value$; break;
     case 5: age = (java.lang.Double)value$; break;
     case 6: sibSp = (java.lang.Integer)value$; break;
     case 7: parch = (java.lang.Integer)value$; break;
@@ -234,7 +234,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'sex' field.
    * @return The value of the 'sex' field.
    */
-  public java.lang.CharSequence getSex() {
+  public de.vwgis.kafkatitanixexercise.model.Gender getSex() {
     return sex;
   }
 
@@ -243,7 +243,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'sex' field.
    * @param value the value to set.
    */
-  public void setSex(java.lang.CharSequence value) {
+  public void setSex(de.vwgis.kafkatitanixexercise.model.Gender value) {
     this.sex = value;
   }
 
@@ -411,7 +411,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     private boolean survived;
     private int pClass;
     private java.lang.CharSequence name;
-    private java.lang.CharSequence sex;
+    private de.vwgis.kafkatitanixexercise.model.Gender sex;
     private double age;
     private int sibSp;
     private int parch;
@@ -698,7 +698,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'sex' field.
       * @return The value.
       */
-    public java.lang.CharSequence getSex() {
+    public de.vwgis.kafkatitanixexercise.model.Gender getSex() {
       return sex;
     }
 
@@ -708,7 +708,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'sex'.
       * @return This builder.
       */
-    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setSex(java.lang.CharSequence value) {
+    public de.vwgis.kafkatitanixexercise.model.Passenger.Builder setSex(de.vwgis.kafkatitanixexercise.model.Gender value) {
       validate(fields()[4], value);
       this.sex = value;
       fieldSetFlags()[4] = true;
@@ -1019,7 +1019,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
         record.survived = fieldSetFlags()[1] ? this.survived : (java.lang.Boolean) defaultValue(fields()[1]);
         record.pClass = fieldSetFlags()[2] ? this.pClass : (java.lang.Integer) defaultValue(fields()[2]);
         record.name = fieldSetFlags()[3] ? this.name : (java.lang.CharSequence) defaultValue(fields()[3]);
-        record.sex = fieldSetFlags()[4] ? this.sex : (java.lang.CharSequence) defaultValue(fields()[4]);
+        record.sex = fieldSetFlags()[4] ? this.sex : (de.vwgis.kafkatitanixexercise.model.Gender) defaultValue(fields()[4]);
         record.age = fieldSetFlags()[5] ? this.age : (java.lang.Double) defaultValue(fields()[5]);
         record.sibSp = fieldSetFlags()[6] ? this.sibSp : (java.lang.Integer) defaultValue(fields()[6]);
         record.parch = fieldSetFlags()[7] ? this.parch : (java.lang.Integer) defaultValue(fields()[7]);
@@ -1067,7 +1067,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
 
     out.writeString(this.name);
 
-    out.writeString(this.sex);
+    out.writeEnum(this.sex.ordinal());
 
     out.writeDouble(this.age);
 
@@ -1098,7 +1098,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
 
       this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
 
-      this.sex = in.readString(this.sex instanceof Utf8 ? (Utf8)this.sex : null);
+      this.sex = de.vwgis.kafkatitanixexercise.model.Gender.values()[in.readEnum()];
 
       this.age = in.readDouble();
 
@@ -1134,7 +1134,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
           break;
 
         case 4:
-          this.sex = in.readString(this.sex instanceof Utf8 ? (Utf8)this.sex : null);
+          this.sex = de.vwgis.kafkatitanixexercise.model.Gender.values()[in.readEnum()];
           break;
 
         case 5:

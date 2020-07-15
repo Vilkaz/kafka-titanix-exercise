@@ -22,7 +22,12 @@
       },
       {
          "name":"sex",
-         "type":"string"
+         "type": {
+            "type" : "enum",
+            "namespace":"de.vwgis.kafkatitanixexercise.model",
+             "name": "Gender",
+             "symbols": ["male", "female", "diverse"]
+         }
       },
       {
          "name":"age",

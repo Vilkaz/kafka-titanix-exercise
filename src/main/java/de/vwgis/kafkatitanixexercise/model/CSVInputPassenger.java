@@ -15,7 +15,7 @@ public class CSVInputPassenger {
     @CsvBindByName
     private String name;
     @CsvBindByName()
-    private String sex;
+    private Gender sex;
     @CsvBindByName()
     private double age;
     @CsvBindByName()
