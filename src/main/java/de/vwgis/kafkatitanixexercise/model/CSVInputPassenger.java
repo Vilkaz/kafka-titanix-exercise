@@ -39,6 +39,7 @@ public class CSVInputPassenger implements BasicPassenger{
         passengerId = extractIntFromObject(record.get("passengerId"));
         survived = extractBooleanFromObject(record.get("survived"));
         fare = extractDoubleFromObject(record.get("fare"));
+        sex = String.valueOf(record.get("sex"));
     }
 
     private Double extractDoubleFromObject(Object data) {

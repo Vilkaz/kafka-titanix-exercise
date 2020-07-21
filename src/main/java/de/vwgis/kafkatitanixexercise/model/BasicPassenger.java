@@ -7,4 +7,6 @@ public interface BasicPassenger {
 
     Boolean getSurvived();
 
+    String getSex();
+
 }
