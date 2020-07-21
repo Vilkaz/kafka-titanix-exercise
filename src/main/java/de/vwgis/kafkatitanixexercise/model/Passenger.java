@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Passenger extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 856692310918248408L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Passenger\",\"namespace\":\"de.vwgis.kafkatitanixexercise.model\",\"fields\":[{\"name\":\"passengerId\",\"type\":\"int\"},{\"name\":\"survived\",\"type\":\"boolean\"},{\"name\":\"pClass\",\"type\":\"int\",\"default\":3},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"sex\",\"type\":{\"type\":\"enum\",\"name\":\"Gender\",\"symbols\":[\"MALE\",\"FEMALE\",\"DIVERSE\"]}},{\"name\":\"age\",\"type\":\"double\",\"default\":0.0},{\"name\":\"sibSp\",\"type\":\"int\"},{\"name\":\"parch\",\"type\":\"int\"},{\"name\":\"ticket\",\"type\":\"string\"},{\"name\":\"fare\",\"type\":\"double\",\"default\":0.0},{\"name\":\"cabin\",\"type\":\"string\",\"default\":\"\"},{\"name\":\"embarked\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = 8803917622247325666L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Passenger\",\"namespace\":\"de.vwgis.kafkatitanixexercise.model\",\"fields\":[{\"name\":\"passengerId\",\"type\":\"int\"},{\"name\":\"survived\",\"type\":\"boolean\"},{\"name\":\"pClass\",\"type\":\"int\",\"default\":3},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"sex\",\"type\":\"string\"},{\"name\":\"age\",\"type\":\"double\",\"default\":0.0},{\"name\":\"sibSp\",\"type\":\"int\"},{\"name\":\"parch\",\"type\":\"int\"},{\"name\":\"ticket\",\"type\":\"string\"},{\"name\":\"fare\",\"type\":\"double\",\"default\":0.0},{\"name\":\"cabin\",\"type\":\"string\",\"default\":\"\"},{\"name\":\"embarked\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -75,7 +75,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    private boolean survived;
    private int pClass;
    private CharSequence name;
-   private Gender sex;
+   private CharSequence sex;
    private double age;
    private int sibSp;
    private int parch;
@@ -106,7 +106,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * @param cabin The new value for cabin
    * @param embarked The new value for embarked
    */
-  public Passenger(Integer passengerId, Boolean survived, Integer pClass, CharSequence name, Gender sex, Double age, Integer sibSp, Integer parch, CharSequence ticket, Double fare, CharSequence cabin, CharSequence embarked) {
+  public Passenger(Integer passengerId, Boolean survived, Integer pClass, CharSequence name, CharSequence sex, Double age, Integer sibSp, Integer parch, CharSequence ticket, Double fare, CharSequence cabin, CharSequence embarked) {
     this.passengerId = passengerId;
     this.survived = survived;
     this.pClass = pClass;
@@ -150,7 +150,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     case 1: survived = (Boolean)value$; break;
     case 2: pClass = (Integer)value$; break;
     case 3: name = (CharSequence)value$; break;
-    case 4: sex = (Gender)value$; break;
+    case 4: sex = (CharSequence)value$; break;
     case 5: age = (Double)value$; break;
     case 6: sibSp = (Integer)value$; break;
     case 7: parch = (Integer)value$; break;
@@ -234,7 +234,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'sex' field.
    * @return The value of the 'sex' field.
    */
-  public Gender getSex() {
+  public CharSequence getSex() {
     return sex;
   }
 
@@ -243,7 +243,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'sex' field.
    * @param value the value to set.
    */
-  public void setSex(Gender value) {
+  public void setSex(CharSequence value) {
     this.sex = value;
   }
 
@@ -411,7 +411,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
     private boolean survived;
     private int pClass;
     private CharSequence name;
-    private Gender sex;
+    private CharSequence sex;
     private double age;
     private int sibSp;
     private int parch;
@@ -698,7 +698,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'sex' field.
       * @return The value.
       */
-    public Gender getSex() {
+    public CharSequence getSex() {
       return sex;
     }
 
@@ -708,7 +708,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'sex'.
       * @return This builder.
       */
-    public Builder setSex(Gender value) {
+    public Builder setSex(CharSequence value) {
       validate(fields()[4], value);
       this.sex = value;
       fieldSetFlags()[4] = true;
@@ -1019,7 +1019,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
         record.survived = fieldSetFlags()[1] ? this.survived : (Boolean) defaultValue(fields()[1]);
         record.pClass = fieldSetFlags()[2] ? this.pClass : (Integer) defaultValue(fields()[2]);
         record.name = fieldSetFlags()[3] ? this.name : (CharSequence) defaultValue(fields()[3]);
-        record.sex = fieldSetFlags()[4] ? this.sex : (Gender) defaultValue(fields()[4]);
+        record.sex = fieldSetFlags()[4] ? this.sex : (CharSequence) defaultValue(fields()[4]);
         record.age = fieldSetFlags()[5] ? this.age : (Double) defaultValue(fields()[5]);
         record.sibSp = fieldSetFlags()[6] ? this.sibSp : (Integer) defaultValue(fields()[6]);
         record.parch = fieldSetFlags()[7] ? this.parch : (Integer) defaultValue(fields()[7]);
@@ -1067,7 +1067,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
 
     out.writeString(this.name);
 
-    out.writeEnum(this.sex.ordinal());
+    out.writeString(this.sex);
 
     out.writeDouble(this.age);
 
@@ -1098,7 +1098,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
 
       this.name = in.readString(this.name instanceof Utf8 ? (Utf8)this.name : null);
 
-      this.sex = Gender.values()[in.readEnum()];
+      this.sex = in.readString(this.sex instanceof Utf8 ? (Utf8)this.sex : null);
 
       this.age = in.readDouble();
 
@@ -1134,7 +1134,7 @@ public class Passenger extends org.apache.avro.specific.SpecificRecordBase imple
           break;
 
         case 4:
-          this.sex = Gender.values()[in.readEnum()];
+          this.sex = in.readString(this.sex instanceof Utf8 ? (Utf8)this.sex : null);
           break;
 
         case 5:

@@ -2,9 +2,12 @@ package de.vwgis.kafkatitanixexercise.model;
 
 import com.opencsv.bean.CsvBindByName;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.apache.avro.generic.GenericRecord;
 
+@NoArgsConstructor
 @Data
-public class CSVInputPassenger {
+public class CSVInputPassenger implements BasicPassenger{
 
     @CsvBindByName
     private Integer passengerId;
@@ -15,7 +18,7 @@ public class CSVInputPassenger {
     @CsvBindByName
     private String name;
     @CsvBindByName()
-    private Gender sex;
+    private String sex;
     @CsvBindByName()
     private double age;
     @CsvBindByName()
@@ -31,6 +34,25 @@ public class CSVInputPassenger {
     @CsvBindByName()
     private String embarked;
 
+
+    public CSVInputPassenger(GenericRecord record) {
+        passengerId = extractIntFromObject(record.get("passengerId"));
+        survived = extractBooleanFromObject(record.get("survived"));
+        fare = extractDoubleFromObject(record.get("fare"));
+    }
+
+    private Double extractDoubleFromObject(Object data) {
+        return Double.valueOf(String.valueOf(data));
+    }
+
+
+    private Boolean extractBooleanFromObject(Object data) {
+        return Boolean.valueOf(String.valueOf(data));
+    }
+
+    private Integer extractIntFromObject(Object data) {
+        return Integer.valueOf(String.valueOf(data));
+    }
 
     public Passenger toPassenger() {
         return Passenger.newBuilder()

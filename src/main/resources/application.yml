@@ -1,7 +1,21 @@
 topic:
   name: passenger
+server:
+  port : 18080
+
 spring:
   kafka:
+#    streams:
+#      binder:
+#        configuration:
+#          default.key.serialiser: 'org.apache.kafka.common.serialization.StringSerializer'
+#          default.key.deserialiser: 'org.apache.kafka.common.serialization.StringDeserializer'
+#          default.value.serialiser: 'io.confluent.kafka.serializers.KafkaAvroSerializer'
+#          default.value.deserialiser: 'io.confluent.kafka.serializers.KafkaAvroDeserializer'
+#        brokers:
+#          - 'http://localhost:9092'
+#
+#        application-id: test_app_id
     properties:
       bootstrap-servers:
         - localhost:9092
@@ -9,13 +23,14 @@ spring:
     consumer:
       group-id: passengerConsumers
       auto-offset-reset: latest
+#      specific-avro-reader: true
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-      specific-avro-reader: true
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
     template:
       default-topic:
+
 
 

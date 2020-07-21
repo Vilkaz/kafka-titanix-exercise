@@ -15,6 +15,7 @@ public class PassengerProducer {
 
     @Value("${topic.name}")
     private String TOPIC;
+
     private KafkaTemplate<String, Passenger> kafkaTemplate;
 
     private final Logger logger = LoggerFactory.getLogger(PassengerProducer.class);
@@ -27,8 +28,6 @@ public class PassengerProducer {
     public void publish(Passenger passenger) {
         logger.info("sending to kafka. Topic=" + TOPIC + ", passenger =" + passenger);
         ListenableFuture<SendResult<String, Passenger>> send = kafkaTemplate.send(TOPIC, passenger);
-        kafkaTemplate.flush();
-        System.out.println();
     }
 
 }
