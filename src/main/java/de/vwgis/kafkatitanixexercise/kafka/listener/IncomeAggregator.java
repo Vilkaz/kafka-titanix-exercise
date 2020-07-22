@@ -1,7 +1,7 @@
-package de.vwgis.kafkatitanixexercise.service;
+package de.vwgis.kafkatitanixexercise.kafka.listener;
 
 import de.vwgis.kafkatitanixexercise.model.BasicPassenger;
-import de.vwgis.kafkatitanixexercise.model.CSVInputPassenger;
+import de.vwgis.kafkatitanixexercise.model.TitanicPassenger;
 import lombok.extern.apachecommons.CommonsLog;
 import org.apache.avro.generic.GenericRecord;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -9,20 +9,19 @@ import org.springframework.stereotype.Service;
 
 @CommonsLog
 @Service
-public class IncomeService {
+public class IncomeAggregator {
 
 
     /**
-     * Those static variabels simulate the Database for this specific Test Task
+     * Those variables simulate the Database for this specific Test Task
      */
-    private static double income;
-    private static double survivorsIncome;
+    private double income;
+    private double survivorsIncome;
 
     @KafkaListener(topics = "passenger", groupId = "incomeConsumers")
     public void incomeConsumer(GenericRecord record) {
-        CSVInputPassenger passenger = new CSVInputPassenger(record);
+        BasicPassenger passenger = new TitanicPassenger(record);
         addIncome(passenger);
-        log.info("consumed message from kafka: " + record);
     }
 
     private void addIncome(BasicPassenger passenger) {

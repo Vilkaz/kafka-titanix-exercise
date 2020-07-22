@@ -9,4 +9,8 @@ public interface BasicPassenger {
 
     String getSex();
 
+    Integer getPClass();
+
+    String getName();
+
 }

@@ -1,9 +1,9 @@
-package de.vwgis.kafkatitanixexercise.service;
+package de.vwgis.kafkatitanixexercise.kafka.producer;
 
 import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import de.vwgis.kafkatitanixexercise.model.CSVInputPassenger;
+import de.vwgis.kafkatitanixexercise.model.TitanicPassenger;
 import de.vwgis.kafkatitanixexercise.model.Passenger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,10 +37,10 @@ public class CoreDataProducer {
         log.info("Sending Core Dataset To kafka");
 
         CsvToBean csv = new CsvToBeanBuilder(createCSVReader())
-                .withType(CSVInputPassenger.class)
+                .withType(TitanicPassenger.class)
                 .build();
 
-        List<CSVInputPassenger> csvPassengers = csv.parse();
+        List<TitanicPassenger> csvPassengers = csv.parse();
         csvPassengers.forEach(p -> sendMessage(p.toPassenger()));
     }
 

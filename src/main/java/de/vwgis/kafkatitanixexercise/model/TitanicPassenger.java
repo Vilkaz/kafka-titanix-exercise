@@ -7,7 +7,7 @@ import org.apache.avro.generic.GenericRecord;
 
 @NoArgsConstructor
 @Data
-public class CSVInputPassenger implements BasicPassenger{
+public class TitanicPassenger implements BasicPassenger{
 
     @CsvBindByName
     private Integer passengerId;
@@ -35,11 +35,13 @@ public class CSVInputPassenger implements BasicPassenger{
     private String embarked;
 
 
-    public CSVInputPassenger(GenericRecord record) {
+    public TitanicPassenger(GenericRecord record) {
         passengerId = extractIntFromObject(record.get("passengerId"));
         survived = extractBooleanFromObject(record.get("survived"));
         fare = extractDoubleFromObject(record.get("fare"));
         sex = String.valueOf(record.get("sex"));
+        pClass = extractIntFromObject(record.get("pClass"));
+        name = String.valueOf(record.get("name"));
     }
 
     private Double extractDoubleFromObject(Object data) {

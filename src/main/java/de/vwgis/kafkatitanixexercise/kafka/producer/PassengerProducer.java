@@ -1,4 +1,4 @@
-package de.vwgis.kafkatitanixexercise.service;
+package de.vwgis.kafkatitanixexercise.kafka.producer;
 
 import de.vwgis.kafkatitanixexercise.model.Passenger;
 import org.slf4j.Logger;

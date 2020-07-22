@@ -1,4 +1,4 @@
-package de.vwgis.kafkatitanixexercise.service;
+package de.vwgis.kafkatitanixexercise.kafka.producer;
 
 
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
