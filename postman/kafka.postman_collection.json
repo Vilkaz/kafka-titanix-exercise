@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "442c5ff6-e6ef-443d-bf3c-6f963db40af9",
+		"name": "kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "initCoreData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publish one PAssenger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n  \"passengerId\" : 13373,\r\n  \"survived\" :true,\r\n  \"pClass\" : 3,\r\n  \"name\": \"TestName\",\r\n  \"sex\" : \"male\",\r\n  \"age\" : \"12.0\",\r\n  \"sibSp\" : 135,\r\n  \"parch\" : 234,\r\n  \"ticket\" : \"Ticket\",\r\n  \"fare\": 44.4,\r\n  \"cabin\":\"cabin\",\r\n  \"embarked\":\"embarked\"\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:18080/kafka/publish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "18080",
+					"path": [
+						"kafka",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Income Info",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n  \"passengerId\" : 1337,\r\n  \"survived\" :true,\r\n  \"pClass\" : 12,\r\n  \"name\": \"TestName\",\r\n  \"sex\" : \"male\",\r\n  \"age\" : \"12.0\",\r\n  \"sibSp\" : 135,\r\n  \"parch\" : 234,\r\n  \"ticket\" : \"Ticket\",\r\n  \"fare\": 44.4,\r\n  \"cabin\":\"cabin\",\r\n  \"embarked\":\"embarked\"\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/kafka/publish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kafka",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get  survivors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n  \"passengerId\" : 1337,\r\n  \"survived\" :true,\r\n  \"pClass\" : 12,\r\n  \"name\": \"TestName\",\r\n  \"sex\" : \"male\",\r\n  \"age\" : \"12.0\",\r\n  \"sibSp\" : 135,\r\n  \"parch\" : 234,\r\n  \"ticket\" : \"Ticket\",\r\n  \"fare\": 44.4,\r\n  \"cabin\":\"cabin\",\r\n  \"embarked\":\"embarked\"\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/kafka/publish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kafka",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get  names per Class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limiter\" : 3\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/topNamesPerClass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"topNamesPerClass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publish Generic Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n  \"passengerId\" : 1337,\r\n  \"survived\" :true,\r\n  \"pClass\" : 12,\r\n  \"name\": \"TestName\",\r\n  \"sex\" : \"male\",\r\n  \"age\" : \"12.0\",\r\n  \"sibSp\" : 135,\r\n  \"parch\" : 234,\r\n  \"ticket\" : \"Ticket\",\r\n  \"fare\": 44.4,\r\n  \"cabin\":\"cabin\",\r\n  \"embarked\":\"embarked\"\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/kafka/publish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"kafka",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

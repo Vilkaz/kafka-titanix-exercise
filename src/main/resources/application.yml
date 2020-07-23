@@ -1,19 +1,12 @@
+
+swagger:
+  enabled=true
+
 server:
   port : 18080
 
 spring:
   kafka:
-#    streams:
-#      binder:
-#        configuration:
-#          default.key.serialiser: 'org.apache.kafka.common.serialization.StringSerializer'
-#          default.key.deserialiser: 'org.apache.kafka.common.serialization.StringDeserializer'
-#          default.value.serialiser: 'io.confluent.kafka.serializers.KafkaAvroSerializer'
-#          default.value.deserialiser: 'io.confluent.kafka.serializers.KafkaAvroDeserializer'
-#        brokers:
-#          - 'http://localhost:9092'
-#
-#        application-id: test_app_id
     properties:
       bootstrap-servers:
         - localhost:9092
