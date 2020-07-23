@@ -1,6 +1,6 @@
 package de.vwgis.kafkatitanixexercise.kafka.listener;
 
-import de.vwgis.kafkatitanixexercise.common.LastNameExtractor;
+import de.vwgis.kafkatitanixexercise.config.TOPICS;
 import de.vwgis.kafkatitanixexercise.model.BasicPassenger;
 import de.vwgis.kafkatitanixexercise.model.NamesForClass;
 import de.vwgis.kafkatitanixexercise.model.TitanicPassenger;
@@ -22,17 +22,18 @@ public class NameAggregator {
      *
      * First index is Class, second contains names of that class.
      */
-    private static Map<Integer, NamesForClass> namesForSpecificClasses = new HashMap<>();
+    private Map<Integer, NamesForClass> namesForSpecificClasses;
     private final NamesForClass allClasses;
 
     @Autowired
     public NameAggregator(NamesForClass allClasses) {
         this.allClasses = allClasses;
         allClasses.setPClass(0);
+        namesForSpecificClasses = new HashMap<>();
     }
 
 
-    @KafkaListener(topics = "passenger", groupId = "nameConsumer")
+    @KafkaListener(topics = TOPICS.PASSENGERS, groupId = "nameConsumer")
     public void aggregateNames(GenericRecord record) {
         BasicPassenger passenger = new TitanicPassenger(record);
         Integer pClass = passenger.getPClass();

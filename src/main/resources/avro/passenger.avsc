@@ -26,8 +26,7 @@
       },
       {
          "name":"age",
-         "type":"double",
-         "default":0.0
+         "type":"double"
 
       },
       {

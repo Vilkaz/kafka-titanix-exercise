@@ -3,11 +3,11 @@ package de.vwgis.kafkatitanixexercise.kafka.producer;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import de.vwgis.kafkatitanixexercise.config.TOPICS;
 import de.vwgis.kafkatitanixexercise.model.TitanicPassenger;
 import de.vwgis.kafkatitanixexercise.model.Passenger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -26,9 +26,6 @@ public class CoreDataProducer {
     private final Logger log = LoggerFactory.getLogger(CoreDataProducer.class);
     private final KafkaTemplate<String, Passenger> kafkaTemplate;
 
-    @Value("${topic.name}")
-    private String TOPIC;
-
     public CoreDataProducer(KafkaTemplate<String, Passenger> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
@@ -45,7 +42,7 @@ public class CoreDataProducer {
     }
 
     void sendMessage(Passenger passenger) {
-        this.kafkaTemplate.send(TOPIC, String.valueOf(passenger.getPassengerId()), passenger);
+        this.kafkaTemplate.send(TOPICS.PASSENGERS, String.valueOf(passenger.getPassengerId()), passenger);
         log.info(String.format("Send passenger to kafka  -> %s", passenger));
     }
 

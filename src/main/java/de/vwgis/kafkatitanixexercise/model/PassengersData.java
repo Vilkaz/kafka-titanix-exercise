@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
  *
  * Kinda like replacement for a DB in this exercise.
  */
-@Component
 @Data
 public class PassengersData {
 

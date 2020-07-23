@@ -20,6 +20,6 @@ public class PassengerController {
 
     @GetMapping("firstClassInfo")
     public String getInformation() {
-        return aggregator.getFirstClassInfo();
+        return aggregator.getSurvivorInfo();
     }
 }

@@ -42,6 +42,13 @@ public class TitanicPassenger implements BasicPassenger{
         sex = String.valueOf(record.get("sex"));
         pClass = extractIntFromObject(record.get("pClass"));
         name = String.valueOf(record.get("name"));
+        age = extractDoubleFromObject(record.get("age"));
+        sibSp = extractIntFromObject(record.get("sibSp"));
+        parch = extractIntFromObject(record.get("parch"));
+        ticket = String.valueOf(record.get("ticket"));
+        cabin = String.valueOf(record.get("cabin"));
+        embarked = String.valueOf(record.get("embarked"));
+
     }
 
     private Double extractDoubleFromObject(Object data) {
