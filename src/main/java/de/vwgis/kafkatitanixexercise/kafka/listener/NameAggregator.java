@@ -69,8 +69,4 @@ public class NameAggregator {
         return topNamesFromAllClasses + System.lineSeparator() +  resultForSpesificClass;
         }
 
-
-
-
-
 }

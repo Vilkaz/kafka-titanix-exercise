@@ -51,6 +51,7 @@ avro {
     fieldVisibility = "PRIVATE"
 }
 
+
 idea {
     module {
         generatedSourceDirs += file('/build/src/java')

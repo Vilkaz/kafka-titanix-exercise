@@ -2,21 +2,16 @@ package de.vwgis.kafkatitanixexercise.kafka.producer;
 
 import de.vwgis.kafkatitanixexercise.config.TOPICS;
 import de.vwgis.kafkatitanixexercise.model.Passenger;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
-import org.springframework.util.concurrent.ListenableFuture;
 
+@CommonsLog
 @Service
 public class PassengerProducer {
 
-
     private KafkaTemplate<String, Passenger> kafkaTemplate;
-
-    private final Logger logger = LoggerFactory.getLogger(PassengerProducer.class);
 
     @Autowired
     public PassengerProducer(KafkaTemplate<String, Passenger> kafkaTemplate) {
@@ -24,8 +19,8 @@ public class PassengerProducer {
     }
 
     public void publish(Passenger passenger) {
-        logger.info("sending to kafka. Topic=" + TOPICS.PASSENGERS + ", passenger =" + passenger);
-        ListenableFuture<SendResult<String, Passenger>> send = kafkaTemplate.send(TOPICS.PASSENGERS, passenger);
+        log.info("sending to kafka. Topic=" + TOPICS.PASSENGERS + ", passenger =" + passenger);
+        kafkaTemplate.send(TOPICS.PASSENGERS, passenger);
     }
 
 }

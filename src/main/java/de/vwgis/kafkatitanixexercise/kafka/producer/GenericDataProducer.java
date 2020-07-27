@@ -28,7 +28,7 @@ public class GenericDataProducer {
 
     public void publish(Map<String, String> data) {
 
-        Resource resource = new ClassPathResource("avro/passenger.avsc");
+        Resource resource = new ClassPathResource("avro/Passenger.avsc");
         Schema.Parser parser = new Schema.Parser();
         Schema schema = null;
         try {
