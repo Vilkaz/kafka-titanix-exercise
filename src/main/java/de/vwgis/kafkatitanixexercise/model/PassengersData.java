@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * A Class for to acumulate Data about all Passengers.
+ * A Class for to accumulate Data about all Passengers.
  *
  * Kinda like replacement for a DB in this exercise.
  */
