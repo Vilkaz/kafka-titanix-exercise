@@ -8,6 +8,8 @@ import org.apache.avro.generic.GenericRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @CommonsLog
 @Service
 public class IncomeAggregator {
@@ -16,8 +18,13 @@ public class IncomeAggregator {
     /**
      * Those variables simulate the Database for this specific Test Task
      */
-    private double income;
-    private double survivorsIncome;
+    private BigDecimal income;
+    private BigDecimal survivorsIncome;
+
+    public IncomeAggregator() {
+        income = BigDecimal.ZERO;
+        survivorsIncome =BigDecimal.ZERO;
+    }
 
     @KafkaListener(topics = TOPICS.PASSENGERS, groupId = "incomeConsumers")
     public void incomeConsumer(GenericRecord record) {
@@ -26,9 +33,13 @@ public class IncomeAggregator {
     }
 
     private void addIncome(BasicPassenger passenger) {
-        income += passenger.getFare();
-        survivorsIncome += passenger.getSurvived() ? passenger.getFare() : 0;
+        income = income.add(passenger.getFare());
+        survivorsIncome = survivorsIncome.add(extractSurvivorsIncome(passenger));
         log.debug("added income from Passenger " + passenger.getPassengerId());
+    }
+
+    private BigDecimal extractSurvivorsIncome(BasicPassenger passenger) {
+        return passenger.getSurvived() ? passenger.getFare() : BigDecimal.ZERO;
     }
 
     public String getIncomeInfo() {

@@ -43,8 +43,8 @@
       },
       {
          "name":"fare",
-         "type":"double",
-         "default":0.0
+         "type":"String",
+         "default": "0.0"
       },
       {
          "name":"cabin",

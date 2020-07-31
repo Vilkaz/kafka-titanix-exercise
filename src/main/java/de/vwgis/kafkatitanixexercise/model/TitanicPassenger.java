@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.avro.generic.GenericRecord;
 
+import java.math.BigDecimal;
+
 @NoArgsConstructor
 @Data
 public class TitanicPassenger implements BasicPassenger{
@@ -28,7 +30,7 @@ public class TitanicPassenger implements BasicPassenger{
     @CsvBindByName()
     private String ticket;
     @CsvBindByName()
-    private Double fare;
+    private BigDecimal fare;
     @CsvBindByName()
     private String cabin;
     @CsvBindByName()
@@ -38,7 +40,7 @@ public class TitanicPassenger implements BasicPassenger{
     public TitanicPassenger(GenericRecord record) {
         passengerId = extractIntFromObject(record.get("passengerId"));
         survived = extractBooleanFromObject(record.get("survived"));
-        fare = extractDoubleFromObject(record.get("fare"));
+        fare = extractBigDecimalFromObject(record.get("fare"));
         sex = String.valueOf(record.get("sex"));
         pClass = extractIntFromObject(record.get("pClass"));
         name = String.valueOf(record.get("name"));
@@ -53,6 +55,10 @@ public class TitanicPassenger implements BasicPassenger{
 
     private Double extractDoubleFromObject(Object data) {
         return Double.valueOf(String.valueOf(data));
+    }
+
+    private BigDecimal extractBigDecimalFromObject(Object data) {
+        return new BigDecimal(String.valueOf(data));
     }
 
 
@@ -75,7 +81,7 @@ public class TitanicPassenger implements BasicPassenger{
                 .setSibSp(sibSp)
                 .setParch(parch)
                 .setTicket(ticket)
-                .setFare(fare)
+                .setFare(fare.doubleValue())
                 .setCabin(cabin)
                 .setEmbarked(embarked)
                 .build();

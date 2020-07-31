@@ -54,7 +54,7 @@ avro {
 
 idea {
     module {
-        generatedSourceDirs += file('/build/src/java')
+        generatedSourceDirs += file('build/generated-main-avro-java/de/vwgis/kafkatitanixexercise/model')
     }
 }
 

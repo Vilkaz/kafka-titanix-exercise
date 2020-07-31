@@ -18,7 +18,7 @@ public class PassengerController {
         this.aggregator = service;
     }
 
-    @GetMapping("firstClassInfo")
+    @GetMapping("survivors")
     public String getInformation() {
         return aggregator.getSurvivorInfo();
     }

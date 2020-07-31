@@ -20,6 +20,8 @@ public class PassengersData {
 
 
     public void consumePassenger(BasicPassenger passenger) {
+        //here we have a potenial exception if a gender is not classified.
+        //Ask PO how he want to handle it
         SurvivorCounter survivorCounter = SurvivorCounter.valueOf(passenger.getSex());
         survivorCounter.count(passenger, this);
     }
